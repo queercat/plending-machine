@@ -1,10 +1,12 @@
 import hre from "hardhat";
 
-const main = async () => {
-    const plendingMachine = await hre.ethers.deployContract("PlendingMachine");
-    await plendingMachine.waitForDeployment();
+const CONTRACT_NAME = "PUT_CONTRACT_NAME_HERE"
 
-    console.log(`Deployed plending machine to ${plendingMachine.target}`);
+const main = async () => {
+    const contract = await hre.ethers.deployContract(CONTRACT_NAME);
+    await contract.waitForDeployment();
+
+    console.log(`Deployed plending machine to ${contract.target}`);
 }
 
 main().catch(e => console.error(e))
